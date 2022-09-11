@@ -24,11 +24,10 @@ AppModule = __decorate([
                 username: 'root',
                 password: 'Enter2?DB',
                 database: 'adminTest',
-                entities: [],
                 autoLoadEntities: true,
                 synchronize: true,
             }),
-            product_module_1.ProductModule,
+            product_module_1.ProductModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
