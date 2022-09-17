@@ -1,8 +1,10 @@
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
+import { ClientProxy } from '@nestjs/microservices';
 export declare class ProductController {
     private productService;
-    constructor(productService: ProductService);
+    private readonly client;
+    constructor(productService: ProductService, client: ClientProxy);
     all(): Promise<Product[]>;
     create(title: string, image: string): Promise<Product>;
     get(id: number): Promise<Product>;

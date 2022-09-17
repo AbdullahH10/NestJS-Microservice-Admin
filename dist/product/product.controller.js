@@ -15,11 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductController = void 0;
 const product_service_1 = require("./product.service");
 const common_1 = require("@nestjs/common");
+const microservices_1 = require("@nestjs/microservices");
 let ProductController = class ProductController {
-    constructor(productService) {
+    constructor(productService, client) {
         this.productService = productService;
+        this.client = client;
     }
     async all() {
+        this.client.emit('hello', 'Hello from admin-test!');
         return this.productService.all();
     }
     async create(title, image) {
@@ -80,7 +83,9 @@ __decorate([
 ], ProductController.prototype, "delete", null);
 ProductController = __decorate([
     (0, common_1.Controller)('products'),
-    __metadata("design:paramtypes", [product_service_1.ProductService])
+    __param(1, (0, common_1.Inject)('PRODUCT_SERVICE')),
+    __metadata("design:paramtypes", [product_service_1.ProductService,
+        microservices_1.ClientProxy])
 ], ProductController);
 exports.ProductController = ProductController;
 //# sourceMappingURL=product.controller.js.map
