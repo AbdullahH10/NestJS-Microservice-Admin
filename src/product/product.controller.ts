@@ -1,7 +1,5 @@
 import { ProductService } from './product.service';
 import { Body, Controller, Delete, Get, Inject, Param, Post, Put } from '@nestjs/common';
-import { Product } from './product.entity';
-import { identity } from 'rxjs';
 import { ClientProxy } from '@nestjs/microservices';
 
 @Controller('products')
